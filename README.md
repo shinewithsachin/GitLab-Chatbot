@@ -3,13 +3,13 @@
 An interactive RAG-based chatbot that helps users explore GitLab's open Handbook and Direction pages. Built with LangChain, FAISS, HuggingFace embeddings, and Google's Gemini LLM.
 
 ## Live Demo
-> **[Launch Chatbot on Streamlit Cloud](https://your-app-url.streamlit.app)**  
+> **[Launch Chatbot on Streamlit Cloud](https://app-chatbot-fw7jza5ozr5drdaw5p7vhg.streamlit.app/)**  
 > *(Enter your own Gemini API key in the sidebar to start chatting)*
 
 ## Features
 - **Deep Sub-Link Discovery** — Automatically crawls 15 seed pages and discovers 150+ sub-section hyperlinks from the GitLab Handbook and Direction pages, ensuring comprehensive coverage.
 - **Local Embeddings (HuggingFace)** — Uses `all-MiniLM-L6-v2` for embedding, running entirely locally with zero API costs.
-- **Gemini-Powered Answers** — Uses Google's `gemini-2.0-flash` LLM for generating context-aware responses.
+- **Gemini-Powered Answers** — Uses Google's `gemini-2.5-flash` LLM for generating context-aware responses.
 - **Conversational Memory** — Remembers chat history for seamless follow-up questions.
 - **Topic Guardrails** — Politely declines off-topic questions and stays focused on GitLab content.
 - **Graceful Error Handling** — Auto-retries on rate limits; shows friendly messages instead of stack traces.
@@ -26,7 +26,7 @@ User Query → Streamlit UI → HuggingFace Embeddings → FAISS Retrieval → G
 | Frontend | Streamlit | Chat interface with GitLab theming |
 | Embeddings | HuggingFace `all-MiniLM-L6-v2` | Local vector embeddings (no API needed) |
 | Vector Store | FAISS | Fast similarity search over 821 chunks |
-| LLM | Google Gemini `2.0-flash` | Answer generation |
+| LLM | Google Gemini `2.5-flash` | Answer generation |
 | Data Pipeline | BeautifulSoup + LangChain | Web scraping with auto sub-link discovery |
 
 ## Project Structure
@@ -93,6 +93,6 @@ python data_loader.py
 | HuggingFace over Gemini embeddings | Zero API cost, no rate limits, works offline |
 | Auto sub-link discovery | Covers 165 pages vs. only 15 hardcoded URLs |
 | FAISS over cloud vector DB | No external dependencies, fast, included in repo |
-| Gemini 2.0 Flash | Best balance of quality and free-tier quota (1,500 req/day) |
+| Gemini 2.5 Flash | Best balance of quality and free-tier quota (1,500 req/day) |
 | k=3 retrieval | Reduces token usage by 40% while maintaining answer quality |
 | Topic guardrails | Keeps assistant focused on GitLab content only |
