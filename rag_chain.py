@@ -24,7 +24,7 @@ def get_rag_chain(api_key=None):
     retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 
     llm = ChatGoogleGenerativeAI(
-        model="gemini-2.0-flash",
+        model="gemini-2.5-flash",
         temperature=0.3,
         google_api_key=api_key 
     )
